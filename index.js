@@ -23,10 +23,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Import Routes
-const BaseRoutes = require('./Routes/BaseRoutes');
+const baseRoutes = require('./Routes/baseRoutes');
+const userRoutes = require('./Routes/user');
 
 // Routes
-app.use('/', BaseRoutes);
+app.use('/', baseRoutes);
+app.use('/users', userRoutes);
 
 app.use((req, res, next) => {
   const error = new Error('Not Found');
