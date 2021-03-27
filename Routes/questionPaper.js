@@ -57,4 +57,15 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+// Get the all questionpapers
+router.get('/', async (req, res, next) => {
+  try {
+    const questionpapers = await Models.QuestionPaper.find({});
+    if (!questionpapers) throw new Error('Invalid request');
+    res.status(200).json(questionpapers);
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
+});
+
 module.exports = router;
