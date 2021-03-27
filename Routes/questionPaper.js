@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const Models = require('../Models');
 
-// Get the all question for given questionPaperId
+// Get the all question (without answers) for given questionPaperId
 router.get('/:questionPaperId', async (req, res, next) => {
   try {
     const questions = await Models.Question.find({
