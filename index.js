@@ -25,10 +25,12 @@ app.use(cors());
 // Import Routes
 const baseRoutes = require('./Routes/baseRoutes');
 const userRoutes = require('./Routes/user');
+const questionPaperRoutes = require('./Routes/questionPaper');
 
 // Routes
 app.use('/', baseRoutes);
 app.use('/users', userRoutes);
+app.use('/questionpaper', questionPaperRoutes);
 
 app.use((req, res, next) => {
   const error = new Error('Not Found');
