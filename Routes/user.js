@@ -69,22 +69,26 @@ router.delete('/:email', async (req, res, next) => {
 });
 
 // Update user
-router.put('/:email', async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
   try {
-    const updatedUser = new Models.User({
-      username: req.body.username,
-      email: req.body.email,
-      role: req.body.role,
-    });
+    let updatedUser = {
+      ...(req.body.username ? { username: req.body.username } : {}),
+      ...(req.body.email ? { email: req.body.email } : {}),
+      ...(req.body.role ? { role: req.body.role } : {}),
+    };
 
-    Models.User.updateOne({ email: req.params.email }, updatedUser).then(
-      (result) => {
-        res.status(201).json({
-          message: 'User Updated!',
-          updatedUser: result,
-        });
-      }
-    );
+    Models.User.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: updatedUser,
+      },
+      { new: true }
+    ).then((result) => {
+      res.status(201).json({
+        message: 'User Updated!',
+        updatedUser: result,
+      });
+    });
   } catch (err) {
     res.status(500).json({ error: err });
   }
