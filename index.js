@@ -27,12 +27,14 @@ const baseRoutes = require('./Routes/baseRoutes');
 const userRoutes = require('./Routes/user');
 const questionPaperRoutes = require('./Routes/questionPaper');
 const questionRoutes = require('./Routes/questions');
+const answerRoutes = require('./Routes/answers');
 
 // Routes
 app.use('/', baseRoutes);
 app.use('/users', userRoutes);
 app.use('/questionpaper', questionPaperRoutes);
 app.use('/questions', questionRoutes);
+app.use('/answers', answerRoutes);
 
 app.use((req, res, next) => {
   const error = new Error('Not Found');
