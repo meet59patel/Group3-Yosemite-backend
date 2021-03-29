@@ -1,0 +1,92 @@
+[
+    { 
+         "questionPaperID": "605f26e630ec929b9e146bea",
+         "question": "What is supervised learning",
+         "ansByFaculty": "Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data consisting of a set of training examples",
+         "marks": "10"
+    },
+    { 
+         "questionPaperID": "605f26e630ec929b9e146bea",
+         "question": "What is ‘Overfitting’ in Machine learning?",
+         "ansByFaculty": "In machine learning, when a statistical model describes random error or noise instead of underlying relationship ‘overfitting’ occurs.  When a model is excessively complex, overfitting is normally observed, because of having too many parameters with respect to the number of training data types. The model exhibits poor performance which has been overfit..",
+         "marks": "10"
+    },
+    { 
+         "questionPaperID": "605f26e630ec929b9e146bea",
+         "question": "What is classifier in machine learning?",
+         "ansByFaculty": "A classifier in a Machine Learning is a system that inputs a vector of discrete or continuous feature values and outputs a single discrete value, the class.",
+         "marks": "10"
+    },
+    { 
+         "questionPaperID": "605f26e630ec929b9e146bea",
+         "question": "What are the advantages of Naive Bayes?",
+         "ansByFaculty": "In Naïve Bayes classifier will converge quicker than discriminative models like logistic regression, so you need less training data.  The main advantage is that it can’t learn interactions between features.",
+         "marks": "10"
+    },
+    { 
+        "questionPaperID": "605f26e630ec929b9e146bea",
+        "question": "What is PCA, KPCA and ICA used for?",
+        "ansByFaculty": "PCA (Principal Components Analysis), KPCA ( Kernel based Principal Component Analysis) and ICA ( Independent Component Analysis) are important feature extraction techniques used for dimensionality reduction.",
+        "marks": "10"
+    },
+    { 
+        "questionPaperID": "605f271930ec929b9e146bec",
+        "question": "What are the layers of the OSI reference model?",
+        "ansByFaculty": "There are 7 OSI layers: 1) Physical Layer, 2) Data Link Layer, 3) Network Layer, 4) Transport Layer, 5) Session Layer, 6) Presentation Layer, and 7) Application Layer.",
+        "marks": "10"
+    },
+    { 
+        "questionPaperID": "605f271930ec929b9e146bec",
+        "question": "What is a point to point link?",
+        "ansByFaculty": "It refers to a direct connection between two computers on a network. A point to point connection does not need any other network devices other than connecting a cable to the NIC cards of both computers.",
+        "marks": "10"
+    },
+    { 
+        "questionPaperID": "605f271930ec929b9e146bec",
+        "question": "What is a subnet mask?",
+        "ansByFaculty": "A subnet mask is combined with an IP address to identify two parts: the extended network address and the host address. Like an IP address, a subnet mask is made up of 32 bits.",
+        "marks": "10"
+    },
+    { 
+        "questionPaperID": "605f271930ec929b9e146bec",
+        "question": "Briefly describe NAT",
+        "ansByFaculty": "NAT is Network Address Translation. This is a protocol that provides a way for multiple computers on a common network to share a single connection to the Internet.",
+        "marks": "10"
+    },
+    { 
+        "questionPaperID": "605f271930ec929b9e146bec",
+        "question": "What is data encapsulation?",
+        "ansByFaculty": "Data encapsulation is the process of breaking down information into smaller, manageable chunks before it is transmitted across the network. In this process that the source and destination addresses are attached to the headers, along with parity checks.",
+        "marks": "10"
+    },
+    { 
+       "questionPaperID": "605f1c24d36f8b94df32f9b6",
+       "question": "What is LIFO?",
+       "ansByFaculty": "LIFO is a short form of Last In First Out. It refers how data is accessed, stored and retrieved. Using this scheme, data that was stored last should be the one to be extracted first. This also means that in order to gain access to the first data, all the other data that was stored before this first data must first be retrieved and extracted.",
+       "marks": "10"
+    },
+    { 
+        "questionPaperID": "605f1c24d36f8b94df32f9b6",
+        "question": "What is a dequeue?",
+        "ansByFaculty": "A dequeue is a double-ended queue. This is a structure wherein elements can be inserted or removed from either end.",
+        "marks": "10"
+    },
+    { 
+        "questionPaperID": "605f1c24d36f8b94df32f9b6",
+        "question": "Differentiate NULL and VOID",
+        "ansByFaculty": "Null is a value, whereas Void is a data type identifier. A variable that is given a Null value indicates an empty value. The void is used to identify pointers as having no initial size.",
+        "marks": "10"
+    },
+    { 
+       "questionPaperID": "605f1c24d36f8b94df32f9b6",
+       "question": "What are binary trees?",
+       "ansByFaculty": "A binary tree is one type of data structure that has two nodes, a left node, and a right node. In programming, binary trees are an extension of the linked list structures.",
+       "marks": "10"
+    },
+    { 
+        "questionPaperID": "605f1c24d36f8b94df32f9b6",
+        "question": "Provide an iterative solution to in-order tree traversal",
+        "ansByFaculty": "Start with the root node. Create a stack. Push elements. Pop elements.",
+        "marks": "10"
+    }
+]
