@@ -46,4 +46,33 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+// Update Question
+router.put('/:id', async (req, res, next) => {
+  try {
+    const updatedQuestion = {
+      ...(req.body.questionPaperID
+        ? { questionPaperID: req.body.questionPaperID }
+        : {}),
+      ...(req.body.question ? { question: req.body.question } : {}),
+      ...(req.body.ansByFaculty ? { ansByFaculty: req.body.ansByFaculty } : {}),
+      ...(req.body.marks ? { marks: req.body.marks } : {}),
+    };
+
+    Models.Question.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $set: updatedQuestion,
+      },
+      { new: true }
+    ).then((result) => {
+      res.status(201).json({
+        message: 'Question Updated!',
+        updatedQuestion: result,
+      });
+    });
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
+});
+
 module.exports = router;
