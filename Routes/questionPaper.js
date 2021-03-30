@@ -97,4 +97,48 @@ router.put('/:id', async (req, res, next) => {
   }
 });
 
+// [Frontend Handler] QuestionPaper Submit Handler
+router.post('/savepaper', async (req, res, next) => {
+  try {
+    console.log(req.body);
+
+    // Saving QuestionPaper
+    const questionPaper = new Models.QuestionPaper({
+      facultyID: req.body.facultyID,
+      questionPaperDescription: req.body.assignment_description,
+      submissionDeadline: req.body.date_time,
+      subjectName: req.body.course,
+      total: req.body.total_marks,
+    });
+    await questionPaper.save();
+    if (!questionPaper) throw new Error('Server is down');
+
+    // Save Individual Questions
+    for (let item in req.body) {
+      // console.log(item);
+      if (item.includes('-question')) {
+        let new_que = Models.Question({
+          questionPaperID: questionPaper._id,
+          question: req.body[`id${item[2]}-question`],
+          ansByFaculty: req.body[`id${item[2]}-ref_answer`],
+          marks: req.body[`id${item[2]}-max_score`],
+        });
+        await new_que.save();
+        if (!new_que) {
+          throw new Error(`Error in saving Question ${item[2]}`);
+        } else {
+          console.log(new_que._id);
+        }
+      }
+    }
+
+    res.status(201).json({
+      message: 'QuestionPaper Saved!',
+      questionPaper,
+    });
+  } catch (error) {
+    res.status(500).json({ error: err });
+  }
+});
+
 module.exports = router;

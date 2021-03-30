@@ -30,6 +30,9 @@ const questionPaperSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
+    questionPaperDescription: {
+        type: String,
+    },
     submissionDeadline: {
         required: true,
         type: Date,
