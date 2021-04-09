@@ -43,7 +43,20 @@ const questionPaperSchema = new mongoose.Schema({
     },
     total: {
         type: Number,
-    }
+    },
+    students: [
+        {
+            student_id: {
+                required: true,
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User'
+            },
+            isSubmitted : {
+                type: Boolean,
+                default: false,
+            }
+        }
+    ]
 },{
     timestamps: true,
 })
