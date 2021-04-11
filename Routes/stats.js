@@ -59,7 +59,7 @@ router.get('/assignmentsOfLastWeek', async(req,res,next) => {
 
 router.get('/assignmentInfo', async(req,res,next) => {
     try{    
-        const questionPapers = await Models.find({}).sort({ createdAt: -1 }).limit(5)
+        const questionPapers = await Models.QuestionPaper.find({}).sort({ createdAt: -1 }).limit(5)
         const result = []
         for(let i=0; i < questionPapers.length; i++) {
             const questionPaper = questionPapers[i]
