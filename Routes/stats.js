@@ -2,34 +2,56 @@ const router = require('express').Router()
 
 const Models = require('../Models')
 
-// Current number students, faculties and admins in database
-router.get('/currentUsersCount', async(req,res,next) => {
+// results[i] = No of Users registered on (current - i)th day
+router.get('/countOfNewUserDuringLastWeek', async(req,res,next) => {
     try{
-        const users = await Models.User.find({})
-        const students = users.filter(user => user.role === "student")
-        const admins = users.filter(user => user.role === "admin")
-        const faculties  = users.filter(user => user.role === "faculty")
+        const results = []
+        for(let i=0; i<7; i++) {
+            const users = await Models.User.find({ createdAt: { $gte: new Date(new Date() - i * 60 * 60 * 24 * 1000) } })
+            const students = users.filter(user => user.role === "student")
+            const admins = users.filter(user => user.role === "admin")
+            const faculties = users.filter(user => user.role === "faculty")
+            results.push({
+                students: students.length,
+                admins: admins.length,
+                faculties: faculties.length
+            })
+        }
+        let admins = 0, students = 0, faculties = 0;
+        for(let i=0;i<7;i++) {
+            results[i].students -= students
+            results[i].admins -= admins
+            results[i].faculties -= faculties
+            admins += results[i].admins 
+            students += results[i].students 
+            faculties += results[i].faculties
+        }
         res.status(200).json({
-            students: students.length,
-            admins: admins.length,
-            faculties: faculties.length
+            results
         })
     } catch(err) {
         res.status(500).json({ error: err })
     }
 })
 
-// Number users registere in the last week
-router.get('/lastWeekUserscount', async(req,res,next) => {
+// results[i] = No of users on (current - i)th day.
+router.get('/countOfUserDuringLastWeek', async(req,res,next) => {
     try{
-        const users = await Models.User.find({ createdAt: { $gte: new Date(new Date() - 7 * 60 * 60 * 24 * 1000) }})
-        const students = users.filter(user => user.role === "student")
-        const admins = users.filter(user => user.role === "admin")
-        const faculties = users.filter(user => user.role === "faculty")
+        const results = []
+        for (let i = 0; i < 7; i++) {
+            const users = await Models.User.find({ createdAt: { $gte: new Date(new Date() - i * 60 * 60 * 24 * 1000) } })
+            const students = users.filter(user => user.role === "student")
+            const admins = users.filter(user => user.role === "admin")
+            const faculties = users.filter(user => user.role === "faculty")
+            results.push({
+                students: students.length,
+                admins: admins.length,
+                faculties: faculties.length
+            })
+        }
+
         res.status(200).json({
-            students: students.length,
-            admins: admins.length,
-            faculties: faculties.length
+            results
         })
     } catch(err) {
         res.status(500).json({ error: err })
@@ -42,43 +64,45 @@ router.get('/lastWeekUserscount', async(req,res,next) => {
 router.get('/assignmentsOfLastWeek', async(req,res,next) => {
     try{
         let assignments = []
-        for(let i=0;i<=7;i++) {
-            const assignmentsOnIthDay = await Models.QuestionPaper.find({ createdAt: new Date(new Date() - i * 60 * 60 * 24 * 1000) })
+        for(let i=0;i<7;i++) {
+            const assignmentsOnIthDay = await Models.QuestionPaper.find({ createdAt: { $gte: new Date(new Date() - i * 60 * 60 * 24 * 1000) } })
             assignments.push(assignmentsOnIthDay)
         }
         res.status(200).json({
             assignments
         })
     } catch(err) {
-        res.status(500).json({ error: err})
+        res.status(500).json({ error: err })
     }
 })
 
 // Total number of students that were assigned the assignments 
 // and how many of them submitted till now
-
 router.get('/assignmentInfo', async(req,res,next) => {
     try{    
-        const questionPapers = await Models.find({}).sort({ createdAt: -1 }).limit(5)
+        const questionPapers = await Models.QuestionPaper.find({}).sort({ createdAt: -1 }).limit(1)
         const result = []
         for(let i=0; i < questionPapers.length; i++) {
             const questionPaper = questionPapers[i]
-            if (!questionPaper) throw new Error("Invalid requests")
-            const students = questionPaper.students
+            if (!questionPaper) continue
+            const students = await Models.StudentQuestionRelation.find({ questionPaperID: questionPaper._id })
             let submitted = 0
             students.forEach(student => {
                 if (student.isSubmitted)
                     submitted += 1
             })
+            let notSubmitted = students.length - submitted
             result.push({
-                total: students.length,
-                submitted
+                assigned: students.length,
+                submitted,
+                notSubmitted
             })
         }
         res.status(200).json({
             result
         })
     } catch(err) {
+        console.log(err)
         res.status(500).json({ error: err })
     }
 })
@@ -93,7 +117,9 @@ router.get('/facultyAnswerInfo/:questionPaperId', async(req,res,next) => {
             if (answer.is_evaluted) evaluted += 1
             else notEvaluted += 1
         })
+        const students = await Models.StudentQuestionRelation.find({ questionPaperID: req.params.questionPaperId })
         res.status(200).json({
+            assigned: students.length,
             evaluted,
             notEvaluted
         })
@@ -101,5 +127,27 @@ router.get('/facultyAnswerInfo/:questionPaperId', async(req,res,next) => {
         res.status(500).json({ error: err })
     }
 })
+
+// router.get('/temp', async(req,res) => {
+//     try {
+//         const answers = await Models.Answer.find({})
+//         for(let i=0;i<answers.length;i++) {
+//             const studentQuestionRelation = new Models.StudentQuestionRelation({
+//                 studentID: answers[i].studentID ,
+//                 questionPaperID: answers[i].questionPaperID ,
+//                 isSubmitted: true,
+//             })
+//             await studentQuestionRelation.save()
+//         }
+//         res.status(200).json({
+//             message: "Done"
+//         })
+//     } catch (error) {
+//         console.log(error)
+//         res.status(500).json({
+//             error
+//         })
+//     }
+// })
 
 module.exports = router

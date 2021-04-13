@@ -40,20 +40,7 @@ const questionPaperSchema = new mongoose.Schema({
     },
     total: {
         type: Number,
-    },
-    students: [
-        {
-            student_id: {
-                required: true,
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'User'
-            },
-            isSubmitted : {
-                type: Boolean,
-                default: false,
-            }
-        }
-    ]
+    }
 },{
     timestamps: true,
 })
@@ -114,16 +101,39 @@ const answerSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     }
+}, {
+    timestamps: true,
+})
+
+const studentQuestionRelationSchema = new mongoose.Schema({
+    studentID: {
+        required: true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    questionPaperID: {
+        require: true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "QuestionPaper"
+    },
+    isSubmitted: {
+        type: Boolean,
+        default: false,
+    }
+}, {
+    timestamps: true,
 })
 
 const User = new mongoose.model('User', userSchema)
 const QuestionPaper = new mongoose.model('QuestionPaper',questionPaperSchema)
 const Question = new mongoose.model('Question',questionSchema)
 const Answer = new mongoose.model('Answer', answerSchema)
+const StudentQuestionRelation = new mongoose.model('StudentQuestionRelation', studentQuestionRelationSchema)
 
 module.exports = {
     User,
     QuestionPaper,
     Question,
     Answer, 
+    StudentQuestionRelation,
 }
