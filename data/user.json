@@ -1,0 +1,64 @@
+{
+    "user": [{
+            "username": "201801056",
+            "email": "201801056@daiict.ac.in",
+            "password": "password1",
+            "role": "student"
+        },
+        {
+            "username": "201801046",
+            "email": "201801046@daiict.ac.in",
+            "password": "password2",
+            "role": "student"
+        },
+        {
+            "username": "201801085",
+            "email": "201801085@daiict.ac.in",
+            "password": "password3",
+            "role": "student"
+        },
+        {
+            "username": "201801015",
+            "email": "201801015@daiict.ac.in",
+            "password": "password4",
+            "role": "student"
+        },
+        {
+            "username": "201801032",
+            "email": "201801032@daiict.ac.in",
+            "password": "password5",
+            "role": "student"
+        },
+        {
+            "username": "201801064",
+            "email": "201801064@daiict.ac.in",
+            "password": "password6",
+            "role": "student"
+        },
+        {
+            "username": "201801089",
+            "email": "201801089@daiict.ac.in",
+            "password": "password7",
+            "role": "student"
+        },
+        {
+            "username": "Gagan",
+            "email": "gagan@daiict.ac.in",
+            "password": "parasite24",
+            "role": "faculty"
+        },
+        {
+            "username": "Sam",
+            "email": "sam@daiict.ac.in",
+            "password": "dreamin89",
+            "role": "faculty"
+        },
+        {
+            "username": "raj",
+            "email": "raj@daiict.ac.in",
+            "password": "whyme",
+            "role": "admin"
+        }
+
+    ]
+}

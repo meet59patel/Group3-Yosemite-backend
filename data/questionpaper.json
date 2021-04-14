@@ -1,0 +1,23 @@
+{
+    "questionpaper": [{
+            "facultyID": "605f16fd4323c591389a4c91",
+            "submissionDeadline": "2021-03-31T02:59:00.839Z",
+            "subjectName": "Introduction to robotics",
+            "total": "60"
+        },
+        {
+            "facultyID": "605f16f64323c591389a4c90",
+            "submissionDeadline": "2021-04-10T02:23:24.839Z",
+            "subjectName": "Probability",
+            "total": "50"
+        },
+        {
+            "facultyID": "605f16fd4323c591389a4c91",
+            "submissionDeadline": "2021-04-17T02:59:24.839Z",
+            "subjectName": "Introduction to robotics",
+            "total": "90"
+        }
+    ]
+
+
+}

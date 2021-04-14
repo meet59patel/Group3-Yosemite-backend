@@ -1,0 +1,302 @@
+[
+    {
+         "studentID": "605f16a34323c591389a4c89",
+	     "questionID": "605f3137fa2064a1ec4d6026",
+         "questionPaperID": "605f26e630ec929b9e146bea",
+	     "ans": "Supervised learning is the machine learning task of learning a function that maps an input to an output based on example input-output pairs.",
+	     "marks_by_model": "4",
+	     "final_marks": "4",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16a34323c591389a4c89",
+	     "questionID": "605f3158fa2064a1ec4d6027",
+         "questionPaperID": "605f26e630ec929b9e146bea",
+	     "ans": "In machine learning, when a statistical model describes random error or noise instead of underlying relationship ‘overfitting’ occurs.  When a model is excessively complex, overfitting is normally observed, because of having too many parameters with respect to the number of training data types. The model exhibits poor performance which has been overfit.",
+	     "marks_by_model": "10",
+	     "final_marks": "10",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16a34323c591389a4c89",
+	     "questionID": "605f3163fa2064a1ec4d6028",
+         "questionPaperID": "605f26e630ec929b9e146bea",
+	     "ans": "A classifier is something that has classes",
+	     "marks_by_model": "1",
+	     "final_marks": "0",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16a34323c591389a4c89",
+	     "questionID": "605f316dfa2064a1ec4d6029",
+         "questionPaperID": "605f26e630ec929b9e146bea",
+	     "ans": "In Naïve Bayes classifier will converge quicker than discriminative models like logistic regression, so you need less training data.",
+	     "marks_by_model": "7",
+	     "final_marks": "6",
+	     "is_evaluted": "true",
+	     "query_flag": "true"
+    },
+    {
+         "studentID": "605f16a34323c591389a4c89",
+	     "questionID": "605f3174fa2064a1ec4d602a",
+         "questionPaperID": "605f26e630ec929b9e146bea",
+	     "ans": "They reduce dimensionality and are unsupervised.",
+	     "marks_by_model": "4",
+	     "final_marks": "4",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16b44323c591389a4c8a",
+	     "questionID": "605f3158fa2064a1ec4d6026",
+         "questionPaperID": "605f26e630ec929b9e146bea",
+	     "ans": "It is learning a function that maps an input to an output based on example input-output pairs. It infers a function from labeled training data consisting of a set of training examples",
+	     "marks_by_model": "8",
+	     "final_marks": "7",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16b44323c591389a4c8a",
+	     "questionID": "605f3158fa2064a1ec4d6027",
+         "questionPaperID": "605f26e630ec929b9e146bea",
+	     "ans": "n machine learning, when a statistical model describes random error or noise instead of underlying relationship ‘overfitting’ occurs.  When a model is excessively complex, overfitting is normally observed, because of having too many parameters with respect to the number of training data types. The model exhibits poor performance which has been overfit.",
+	     "marks_by_model": "10",
+	     "final_marks": "10",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16b44323c591389a4c8a",
+	     "questionID": "605f3163fa2064a1ec4d6028",
+         "questionPaperID": "605f26e630ec929b9e146bea",
+	     "ans": "A classifier in a Machine Learning is a system that inputs a vector of discrete or continuous feature values and outputs a single discrete value.",
+	     "marks_by_model": "8",
+	     "final_marks": "7",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16b44323c591389a4c8a",
+	     "questionID": "605f316dfa2064a1ec4d6029",
+         "questionPaperID": "605f26e630ec929b9e146bea",
+	     "ans": "The main advantage is that it can’t learn interactions between features.",
+	     "marks_by_model": "4",
+	     "final_marks": "4.5",
+	     "is_evaluted": "true",
+	     "query_flag": "true"
+    },
+    {
+         "studentID": "605f16b44323c591389a4c8a",
+	     "questionID": "605f3174fa2064a1ec4d602a",
+         "questionPaperID": "605f26e630ec929b9e146bea",
+	     "ans": "PCA (Principal Components Analysis), KPCA ( Kernel based Principal Component Analysis) and ICA ( Independent Component Analysis) are important feature extraction techniques used for dimensionality reduction.",
+	     "marks_by_model": "10",
+	     "final_marks": "10",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16be4323c591389a4c8b",
+	     "questionID": "605f317afa2064a1ec4d602b",
+         "questionPaperID": "605f271930ec929b9e146bec",
+	     "ans": "1) Physical Layer, 2) Data Link Layer, 3) Network Layer and  Application Layer.",
+	     "marks_by_model": "6",
+	     "final_marks": "5.5",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16be4323c591389a4c8b",
+	     "questionID": "605f3180fa2064a1ec4d602c",
+         "questionPaperID": "605f271930ec929b9e146bec",
+	     "ans": "It refers to a direct connection between two computers on a network. A point to point connection does not need any other network devices other than connecting a cable to the NIC cards of both computers.",
+	     "marks_by_model": "10",
+	     "final_marks": "10",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16be4323c591389a4c8b",
+	     "questionID": "605f3186fa2064a1ec4d602d",
+         "questionPaperID": "605f271930ec929b9e146bec",
+	     "ans": "A subnet mask is combined with an IP address to identify two parts: the extended network address and the host address.",
+	     "marks_by_model": "7",
+	     "final_marks": "7.5",
+	     "is_evaluted": "true",
+	     "query_flag": "true"
+    },
+    {
+         "studentID": "605f16be4323c591389a4c8b",
+	     "questionID": "605f318bfa2064a1ec4d602e",
+         "questionPaperID": "605f271930ec929b9e146bec",
+	     "ans": "NAT is Network Address Translation. This is a protocol that provides a way for multiple computers on a common network to share a single connection to the Internet.",
+	     "marks_by_model": "10",
+	     "final_marks": "10",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16be4323c591389a4c8b",
+	     "questionID": "605f3191fa2064a1ec4d602f",
+         "questionPaperID": "605f271930ec929b9e146bec",
+	     "ans": "Data encapsulation is the process of breaking down information into smaller, manageable chunks before it is transmitted across the network.",
+	     "marks_by_model": "5",
+	     "final_marks": "5",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16cb4323c591389a4c8c",
+	     "questionID": "605f317afa2064a1ec4d602b",
+         "questionPaperID": "605f271930ec929b9e146bec",
+	     "ans": "There are 6 OSI layers: 1) Physical Layer, 2) Data Link Layer, 3) Network Layer, 4) Transport Layer, 5) Session Layer, and  6) Presentation Layer",
+	     "marks_by_model": "8",
+	     "final_marks": "8.5",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16cb4323c591389a4c8c",
+	     "questionID": "605f3180fa2064a1ec4d602c",
+         "questionPaperID": "605f271930ec929b9e146bec",
+	     "ans": "It refers to a direct connection between two computers on a network.",
+	     "marks_by_model": "3",
+	     "final_marks": "2",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16cb4323c591389a4c8c",
+	     "questionID": "605f3186fa2064a1ec4d602d",
+         "questionPaperID": "605f271930ec929b9e146bec",
+	     "ans": "A subnet mask is combined with an IP address to identify two parts: the extended network address and the host address. Like an IP address, a subnet mask is made up of 32 bits.",
+	     "marks_by_model": "10",
+	     "final_marks": "10",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16cb4323c591389a4c8c",
+	     "questionID": "605f318bfa2064a1ec4d602e",
+         "questionPaperID": "605f271930ec929b9e146bec",
+	     "ans": "NAT  is a protocol that provides a way for multiple computers on a common network to share a single connection to the Internet.",
+	     "marks_by_model": "6",
+	     "final_marks": "7",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16cb4323c591389a4c8c",
+	     "questionID": "605f3191fa2064a1ec4d602f",
+         "questionPaperID": "605f271930ec929b9e146bec",
+	     "ans": "Data encapsulation is the process that the source and destination addresses are attached to the headers, along with parity checks.",
+	     "marks_by_model": "3",
+	     "final_marks": "4",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16e24323c591389a4c8d",
+	     "questionID": "605f319cfa2064a1ec4d6030",
+         "questionPaperID": "605f1c24d36f8b94df32f9b6",
+	     "ans": "LIFO is a short form of Last In First Out. It refers how data is accessed, stored and retrieved.",
+	     "marks_by_model": "6",
+	     "final_marks": "5",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16e24323c591389a4c8d",
+	     "questionID": "605f31a3fa2064a1ec4d6031",
+         "questionPaperID": "605f1c24d36f8b94df32f9b6",
+	     "ans": "A dequeue is a double-ended queue. This is a structure wherein elements can be inserted or removed from either end.",
+	     "marks_by_model": "10",
+	     "final_marks": "10",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16e24323c591389a4c8d",
+	     "questionID": "605f31a9fa2064a1ec4d6032",
+         "questionPaperID": "605f1c24d36f8b94df32f9b6",
+	     "ans": "There is very litle difference between them.",
+	     "marks_by_model": "1.5",
+	     "final_marks": "0.5",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16e24323c591389a4c8d",
+	     "questionID": "605f31aefa2064a1ec4d6033",
+         "questionPaperID": "605f1c24d36f8b94df32f9b6",
+	     "ans": " In programming, binary trees are an extension of the linked list structures.",
+	     "marks_by_model": "3",
+	     "final_marks": "3",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16e24323c591389a4c8d",
+	     "questionID": "605f31b6fa2064a1ec4d6034",
+         "questionPaperID": "605f1c24d36f8b94df32f9b6",
+	     "ans": "Start with the root node. Create a stack. Push some elements. Pop elements",
+	     "marks_by_model": "9",
+	     "final_marks": "10",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16eb4323c591389a4c8e",
+	     "questionID": "605f319cfa2064a1ec4d6030",
+         "questionPaperID": "605f1c24d36f8b94df32f9b6",
+	     "ans": "LIFO is a short form of Last In First Out and means that in order to gain access to the first data, all the other data that was stored before this first data must first be retrieved and extracted.",
+	     "marks_by_model": "8",
+	     "final_marks": "7",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16eb4323c591389a4c8e",
+	     "questionID": "605f31a3fa2064a1ec4d6031",
+         "questionPaperID": "605f1c24d36f8b94df32f9b6",
+	     "ans": "Dequeue is removing of queue.",
+	     "marks_by_model": "0",
+	     "final_marks": "0",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16eb4323c591389a4c8e",
+	     "questionID": "605f31a9fa2064a1ec4d6032",
+         "questionPaperID": "605f1c24d36f8b94df32f9b6",
+	     "ans": "Null is a value, whereas Void is a data type identifier. A variable that is given a Null value indicates an empty value. The void is used to identify pointers as having no initial size.",
+	     "marks_by_model": "10",
+	     "final_marks": "10",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    },
+    {
+         "studentID": "605f16eb4323c591389a4c8e",
+	     "questionID": "605f31aefa2064a1ec4d6033",
+         "questionPaperID": "605f1c24d36f8b94df32f9b6",
+	     "ans": "A binary tree is one type of data structure that has two nodes, a left node, and a right node.",
+	     "marks_by_model": "7",
+	     "final_marks": "7",
+	     "is_evaluted": "true",
+	     "query_flag": "true"
+    },
+    {
+         "studentID": "605f16eb4323c591389a4c8e",
+	     "questionID": "605f31b6fa2064a1ec4d6034",
+         "questionPaperID": "605f1c24d36f8b94df32f9b6",
+	     "ans": "Start with the root node. Create a stack. Push elements. Pop elements",
+	     "marks_by_model": "10",
+	     "final_marks": "10",
+	     "is_evaluted": "true",
+	     "query_flag": "false"
+    }
+]
