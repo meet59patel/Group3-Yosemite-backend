@@ -24,19 +24,20 @@ app.use(cors());
 
 // Import Routes
 const baseRoutes = require('./Routes/baseRoutes');
-const userRoutes = require('./Routes/user');
-const questionPaperRoutes = require('./Routes/questionPaper');
-const questionRoutes = require('./Routes/questions');
-const answerRoutes = require('./Routes/answers');
+const usersRouter = require('./Routes/user');
+const assignmentsRouter = require('./Routes/assignments');
+const submissionsRouter = require('./Routes/submissions');
+const qnasFacultyRouter = require('./Routes/qna_faculty');
+const qnasStudentRouter = require('./Routes/qna_student');
 const statRouters = require('./Routes/stats');
 
 // Routes
 app.use('/', baseRoutes);
-app.use("/user", usersRouter);
-app.use("/assignment", assignmentsRouter);
-app.use("/submission", submissionsRouter);
-app.use("/faculty/qna", qnasFacultyRouter);
-app.use("/qna", qnasStudentRouter);
+app.use('/user', usersRouter);
+app.use('/assignment', assignmentsRouter);
+app.use('/submission', submissionsRouter);
+app.use('/faculty/qna', qnasFacultyRouter);
+app.use('/qna', qnasStudentRouter);
 app.use('/stats', statRouters);
 
 app.use((req, res, next) => {

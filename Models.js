@@ -121,8 +121,8 @@ const qnaStudentSchema = new mongoose.Schema(
 );
 
 const User = new mongoose.model('User', userSchema);
-const User = new mongoose.model('Assignments', assignmentSchema);
-const User = new mongoose.model('Submissions', submissionSchema);
+const Assignments = new mongoose.model('Assignments', assignmentSchema);
+const Submissions = new mongoose.model('Submissions', submissionSchema);
 const QnAs_Faculty = new mongoose.model('QnAs_Faculty', qnaFacultySchema);
 const QnAs_Student = new mongoose.model('QnAs_Student', qnaStudentSchema);
 
