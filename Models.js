@@ -1,142 +1,135 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
-    username: {
-        required: true,
-        type:  String,
-        unique: true,
-    }, 
+const userSchema = new mongoose.Schema(
+  {
+    user_name: {
+      type: String,
+      required: true,
+    },
     email: {
-        required: true,
-        type: String,
-        unique: true,
+      required: true,
+      type: String,
+      unique: true,
     },
     password: {
-        type: String,
-    }, 
-    profilepic: {
-        type: Buffer,
+      type: String,
     },
     role: {
-        type: String, 
-    }
-}, {
-    timestamps: true,
-})
+      type: String,
+      required: true,
+      enum: ['admin', 'faculty', 'student'],
+      default: 'student',
+    },
+    profile_pic: {
+      type: Buffer,
+    },
+    submission_list: [
+      {
+        type: mongoose.Schema.Types.ObjectID,
+        ref: 'Submissions',
+        required: true,
+      },
+    ],
+  },
+  { timestamps: true }
+);
 
-const questionPaperSchema = new mongoose.Schema({
-    facultyID: {
-        required: true,
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+const assignmentSchema = new mongoose.Schema(
+  {
+    assignment_name: {
+      type: String,
+      required: true,
     },
-    questionPaperDescription: {
-        type: String,
+    subject_name: {
+      type: String,
+      required: true,
     },
-    submissionDeadline: {
-        required: true,
-        type: Date,
+    faculty_id: {
+      type: mongoose.Schema.Types.ObjectID,
+      ref: 'Users',
+      required: true,
     },
-    subjectName: {
-        required: true,
-        type: String,
+    total_marks: { type: Number, required: true, default: 0 },
+    deadline: { type: Date, default: Date.now() },
+    is_show: { type: Boolean, required: true, default: false },
+    faculty_submission_id: {
+      type: mongoose.Schema.Types.ObjectID,
+      ref: 'Submissions',
+      required: true,
     },
-    total: {
-        type: Number,
-    }
-},{
-    timestamps: true,
-})
+    submission_list_ids: [
+      {
+        type: mongoose.Schema.Types.ObjectID,
+        ref: 'Submissions',
+      },
+    ],
+  },
+  { timestamps: true }
+);
 
-const questionSchema = new mongoose.Schema({
-    questionPaperID: {
-        required: true,
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'QuestionPaper',
-    }, 
-    question: {
-        type: String,
-        required: true,
+const submissionSchema = new mongoose.Schema(
+  {
+    user_id: {
+      type: mongoose.Schema.Types.ObjectID,
+      ref: 'Users',
+      required: true,
     },
-    ansByFaculty: {
-        type: String,
-        required: true,
-    }, 
-    marks: {
-        type: Number,
-        required: true,
-    }
-}, {
-    timestamps: true,
-})
+    assignment_id: {
+      type: mongoose.Schema.Types.ObjectID,
+      ref: 'Assignments',
+    },
+    evaluated_no_qna: { type: Number, required: true, default: 0 },
+    marks: { type: Number, required: true, default: 0 },
+    qna_list_ids: [
+      {
+        type: mongoose.Schema.Types.ObjectID,
+        ref: 'QnAs_Students',
+      },
+    ],
+  },
+  { timestamps: true }
+);
 
-const answerSchema = new mongoose.Schema({
-    studentID: {
-        required: true,
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-    }, 
-    questionID: {
-        required: true,
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Question'
-    },
-    questionPaperID: {
-        required: true,
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "QuestionPaper",
-    }, 
-    ans: {
-        required: true,
-        type: String,
-    },
-    marks_by_model: {
-        type: Number,
-    },
-    final_marks: {
-        type: Number,
-    },
-    is_evaluted: {
-        type: Boolean,
-        default: false,
-    },
-    query_flag: {
-        type: Boolean,
-        default: false,
-    }
-}, {
-    timestamps: true,
-})
+const qnaFacultySchema = new mongoose.Schema(
+  {
+    question: { type: String, required: true, default: '' },
+    answer: { type: String, default: '' },
+    marks: { type: Number, default: 0 },
+  },
+  { timestamps: true }
+);
 
-const studentQuestionRelationSchema = new mongoose.Schema({
-    studentID: {
-        required: true,
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+const qnaStudentSchema = new mongoose.Schema(
+  {
+    qna_faculty_id: {
+      type: mongoose.Schema.Types.ObjectID,
+      ref: 'QnAs',
+      required: true,
     },
-    questionPaperID: {
-        require: true,
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "QuestionPaper"
+    answer: { type: String },
+    evaluation_status: {
+      type: String,
+      enum: ['pending', 'processing', 'done'],
+      default: 'pending',
     },
-    isSubmitted: {
-        type: Boolean,
-        default: false,
-    }
-}, {
-    timestamps: true,
-})
+    model_marks: { type: Number, default: 0 },
+    query_flag: { type: Boolean, default: false },
+    query_description: { type: String },
+    final_marks: { type: Number, default: 0 },
+  },
+  { timestamps: true }
+);
 
-const User = new mongoose.model('User', userSchema)
-const QuestionPaper = new mongoose.model('QuestionPaper',questionPaperSchema)
-const Question = new mongoose.model('Question',questionSchema)
-const Answer = new mongoose.model('Answer', answerSchema)
-const StudentQuestionRelation = new mongoose.model('StudentQuestionRelation', studentQuestionRelationSchema)
+const User = new mongoose.model('User', userSchema);
+const User = new mongoose.model('Assignments', assignmentSchema);
+const User = new mongoose.model('Submissions', submissionSchema);
+const QnAs_Faculty = new mongoose.model('QnAs_Faculty', qnaFacultySchema);
+const QnAs_Student = new mongoose.model('QnAs_Student', qnaStudentSchema);
 
 module.exports = {
-    User,
-    QuestionPaper,
-    Question,
-    Answer, 
-    StudentQuestionRelation,
-}
+  User,
+  Assignments,
+  Submissions,
+  QnAs_Faculty,
+  QnAs_Student,
+};
