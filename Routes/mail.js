@@ -1,44 +1,49 @@
-const route = require('express').Router()
-const nodemailer = require("nodemailer")
-const Models = require('../Models')
+const route = require('express').Router();
+const nodemailer = require('nodemailer');
+const Models = require('../Models');
 
-// Expect emails array 
-route.post('/', async(req,res, next) => {
-    try {
-        let mailTransporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'yosemite.group3@gmail.com',
-                pass: "Yosemite@2021"
-            },
-            tls: {
-                rejectUnauthorized: false
-            }
-        });
+const EMAIL = process.env.EMAIL_ID || '';
+const EMAIL_PASS = process.env.EMAIL_PASS || '';
 
-        const to = req.body.emails || []
+// Expect emails array
+route.post('/', async (req, res, next) => {
+  try {
+    let mailTransporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: EMAIL,
+        pass: EMAIL_PASS,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+    });
 
-        for (let i = 0; i < to.length; i++) {
-            let mailDetails = {
-                from: 'yosemite.group3@gmail.com',
-                to: to[i],
-                subject: 'Assignment Link | Yosemite',
-                text: `Hey, Here is the submission link to the Assignment <Link>`
-            };
+    const to = req.body.emails || [];
 
-            mailTransporter.sendMail(mailDetails, function (err, data) {
-                if (err) {
-                    console.log('Error Occurs');
-                    console.log(err)
-                } else {
-                    console.log('Email sent successfully');
-                }
-            });
+    for (let i = 0; i < to.length; i++) {
+      let mailDetails = {
+        from: 'yosemite.group3@gmail.com',
+        to: to[i],
+        subject: 'Assignment Link | Yosemite',
+        text: `Hey, Here is the submission link to the Assignment <Link>`,
+      };
+
+      mailTransporter.sendMail(mailDetails, function (err, data) {
+        if (err) {
+          console.log('Error Occurs');
+          console.log(err);
+        } else {
+          console.log('Email sent successfully');
+          res.status(201).json({
+            message: 'Email(s) sent successfully.',
+          });
         }
-    } catch (err) {
-        res.status(500).json({ error: err })
+      });
     }
-})
+  } catch (err) {
+    res.status(500).json({ error: err });
+  }
+});
 
-
-module.exports = route
+module.exports = route;
