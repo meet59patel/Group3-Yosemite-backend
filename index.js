@@ -32,10 +32,11 @@ const statRouters = require('./Routes/stats');
 
 // Routes
 app.use('/', baseRoutes);
-app.use('/users', userRoutes);
-app.use('/questionpaper', questionPaperRoutes);
-app.use('/questions', questionRoutes);
-app.use('/answers', answerRoutes);
+app.use("/user", usersRouter);
+app.use("/assignment", assignmentsRouter);
+app.use("/submission", submissionsRouter);
+app.use("/faculty/qna", qnasFacultyRouter);
+app.use("/qna", qnasStudentRouter);
 app.use('/stats', statRouters);
 
 app.use((req, res, next) => {
