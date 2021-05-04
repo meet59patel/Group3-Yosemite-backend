@@ -1,6 +1,6 @@
 # Yosemite
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Backend for Yosemite - Automatic Answer Checker.
@@ -37,6 +37,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/chirag1911"><img src="https://avatars.githubusercontent.com/u/62808731?v=4?s=100" width="100px;" alt=""/><br /><sub><b>chirag1911</b></sub></a><br /><a href="https://github.com/meet59patel/Group3-Yosemite-backend/commits?author=chirag1911" title="Code">💻</a> <a href="#maintenance-chirag1911" title="Maintenance">🚧</a></td>
     <td align="center"><a href="https://github.com/uditmeena179"><img src="https://avatars.githubusercontent.com/u/79006762?v=4?s=100" width="100px;" alt=""/><br /><sub><b>uditmeena179</b></sub></a><br /><a href="https://github.com/meet59patel/Group3-Yosemite-backend/commits?author=uditmeena179" title="Code">💻</a> <a href="#data-uditmeena179" title="Data">🔣</a> <a href="#example-uditmeena179" title="Examples">💡</a></td>
     <td align="center"><a href="https://github.com/kartavishah14"><img src="https://avatars.githubusercontent.com/u/62076264?v=4?s=100" width="100px;" alt=""/><br /><sub><b>kartavishah14</b></sub></a><br /><a href="https://github.com/meet59patel/Group3-Yosemite-backend/commits?author=kartavishah14" title="Code">💻</a> <a href="#data-kartavishah14" title="Data">🔣</a> <a href="#example-kartavishah14" title="Examples">💡</a></td>
+    <td align="center"><a href="https://github.com/Ridham2001"><img src="https://avatars.githubusercontent.com/u/70639096?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ridham2001</b></sub></a><br /><a href="https://github.com/meet59patel/Group3-Yosemite-backend/commits?author=Ridham2001" title="Code">💻</a> <a href="#maintenance-Ridham2001" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
