@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 router.get('/role/:role', async (req, res) => {
   try {
     const users = await User.find({ role: req.params.role });
-    users.filter((user) => user.role === 'student');
+    users.filter((user) => user.role === req.params.role);
     res.status(201).json({
       message: `All ${req.params.role}s fetched successfully`,
       users: users,
@@ -32,6 +32,25 @@ router.get('/role/:role', async (req, res) => {
 // getting one user with id
 router.get('/:id', getUser, (req, res) => {
   res.status(201).json(res.user);
+});
+
+// getting one user with email
+// TODO: Secure this route
+router.get('/email/:email', (req, res) => {
+  User.findOne({ email: req.params.email })
+    .then((result) => {
+      if (result) {
+        res.status(200).json(result);
+      } else {
+        res.status(200).json({
+          message: 'User Not Found',
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ error: err });
+    });
 });
 
 // creating one user

@@ -34,7 +34,7 @@ const mailRouters = require('./Routes/mail');
 
 // Routes
 app.use('/', baseRoutes);
-app.use('/user', usersRouter);
+app.use('/users', usersRouter);
 app.use('/assignment', assignmentsRouter);
 app.use('/submission', submissionsRouter);
 app.use('/faculty/qna', qnasFacultyRouter);
