@@ -15,6 +15,48 @@ router.get('/', async (req, res) => {
   }
 });
 
+// getting student's submitted assignments
+// router.get('/user/', async (req, res) => {
+//   console.log('user from back', user);
+//   const assignments = await Assignments.find();
+//   try {
+//     res.status(201).json({
+//       message: 'All Assignments fetched successfully',
+//       assignments: assignments,
+//     });
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
+
+// getting facuty's submitted assignments
+router.get('/faculty/:id', async (req, res) => {
+  const assignments = await Assignments.find({ faculty_id: req.params.id });
+  console.log('faculty assignments from back', assignments);
+  try {
+    res.status(201).json({
+      message: 'All Assignments fetched successfully',
+      assignments: assignments,
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// // getting facuty's submitted assignments
+router.get('/student', async (req, res) => {
+  const assignments = await Assignments.find({ is_show: true });
+  console.log('faculty assignments from back', assignments);
+  try {
+    res.status(201).json({
+      message: 'All Assignments fetched successfully',
+      assignments: assignments,
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 // getting one assi with id
 router.get('/:id', getAssignment, (req, res) => {
   res.status(201).json(res.assignment);
@@ -29,6 +71,8 @@ router.post('/', async (req, res) => {
     faculty_submission_id: req.body.faculty_submission_id,
     is_show: req.body.is_show,
     submission_list_ids: [],
+    total_marks: 0,
+    deadline: '',
   });
 
   try {
@@ -48,16 +92,20 @@ router.post('/', async (req, res) => {
 // TODO: add and remove submission id
 // update one assignment with id and data
 router.patch('/:id', getAssignment, async (req, res) => {
-  req.body.assignment_name &&
+  req.body.assignment_name != null &&
     (res.assignment.assignment_name = req.body.assignment_name);
-  req.body.subject_name &&
+  req.body.subject_name != null &&
     (res.assignment.subject_name = req.body.subject_name);
-  req.body.faculty_id && (res.assignment.faculty_id = req.body.faculty_id);
-  req.body.is_show && (res.assignment.is_show = req.body.is_show);
+  req.body.faculty_id != null &&
+    (res.assignment.faculty_id = req.body.faculty_id);
   req.body.faculty_submission_id &&
     (res.assignment.faculty_submission_id = req.body.faculty_submission_id);
+  req.body.is_show != null && (res.assignment.is_show = req.body.is_show);
   req.body.submission_list_ids &&
     (res.assignment.submission_list_ids = req.body.submission_list_ids);
+  req.body.total_marks != null &&
+    (res.assignment.total_marks = req.body.total_marks);
+  req.body.deadline != null && (res.assignment.deadline = req.body.deadline);
 
   // TODO: update for list of ids
   if (req.body.push_submission_id != null) {

@@ -28,7 +28,8 @@ router.post('/', async (req, res) => {
     is_evaluated: false,
     model_marks: 0,
     query_flag: false,
-    query_description: false,
+    query_description: '',
+    query_solved: false,
     final_marks: 0,
   });
 
@@ -48,14 +49,18 @@ router.post('/', async (req, res) => {
 
 // TODO: marks update for evalution marks by model and handle query
 router.patch('/:id', getQnA_student, async (req, res) => {
-  req.body.qna_faculty_id && (res.qna.qna_faculty_id = req.body.qna_faculty_id);
-  req.body.answer && (res.qna.answer = req.body.answer);
-  req.body.is_evaluated && (res.qna.is_evaluated = req.body.is_evaluated);
-  req.body.model_marks && (res.qna.model_marks = req.body.model_marks);
-  req.body.query_flag && (res.qna.query_flag = req.body.query_flag);
-  req.body.query_description &&
+  req.body.qna_faculty_id != null &&
+    (res.qna.qna_faculty_id = req.body.qna_faculty_id);
+  req.body.answer != null && (res.qna.answer = req.body.answer);
+  req.body.is_evaluated != null &&
+    (res.qna.is_evaluated = req.body.is_evaluated);
+  req.body.model_marks != null && (res.qna.model_marks = req.body.model_marks);
+  req.body.query_flag != null && (res.qna.query_flag = req.body.query_flag);
+  req.body.query_description != null &&
     (res.qna.query_description = req.body.query_description);
-  req.body.final_marks && (res.qna.final_marks = req.body.final_marks);
+  req.body.query_solved != null &&
+    (res.qna.query_solved = req.body.query_solved);
+  req.body.final_marks != null && (res.qna.final_marks = req.body.final_marks);
 
   try {
     const updatedQnA = await res.qna.save();

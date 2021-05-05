@@ -44,9 +44,9 @@ router.post('/', async (req, res) => {
 
 // update one with id
 router.patch('/:id', getQnA_faculty, async (req, res) => {
-  req.body.question && (res.qna.question = req.body.question);
-  req.body.answer && (res.qna.answer = req.body.answer);
-  req.body.marks && (res.qna.marks = req.body.marks);
+  req.body.question!= null && (res.qna.question = req.body.question);
+  req.body.answer!= null && (res.qna.answer = req.body.answer);
+  req.body.marks != null && (res.qna.marks = req.body.marks);
 
   try {
     const updatedQnA = await res.qna.save();

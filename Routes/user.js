@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { User } = require('../Models');
+const { Users } = require('../Models');
 
 // getting all users
 router.get('/', async (req, res) => {
@@ -60,12 +60,12 @@ router.post('/', async (req, res) => {
 // TODO: write code for add and remove {assi_id,sub_id} list
 // updating one user with id and data
 router.patch('/:id', getUser, async (req, res) => {
-  req.body.user_name && (res.user.user_name = req.body.user_name);
-  req.body.email && (res.user.email = req.body.email);
-  req.body.role && (res.user.role = req.body.role);
-  req.body.password && (res.user.password = req.body.password);
-  req.body.profile_pic && (res.user.profile_pic = req.body.profile_pic);
-  req.body.submission_list &&
+  req.body.user_name != null && (res.user.user_name = req.body.user_name);
+  req.body.email != null && (res.user.email = req.body.email);
+  req.body.role != null && (res.user.role = req.body.role);
+  req.body.password != null && (res.user.password = req.body.password);
+  req.body.profile_pic != null && (res.user.profile_pic = req.body.profile_pic);
+  req.body.submission_list != null &&
     (res.user.submission_list = req.body.submission_list);
 
   // TODO: update for list of submission_list
