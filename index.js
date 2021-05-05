@@ -24,19 +24,25 @@ app.use(cors());
 
 // Import Routes
 const baseRoutes = require('./Routes/baseRoutes');
-const userRoutes = require('./Routes/user');
-const questionPaperRoutes = require('./Routes/questionPaper');
-const questionRoutes = require('./Routes/questions');
-const answerRoutes = require('./Routes/answers');
+const usersRouter = require('./Routes/user');
+const assignmentsRouter = require('./Routes/assignments');
+const submissionsRouter = require('./Routes/submissions');
+const qnasFacultyRouter = require('./Routes/qna_faculty');
+const qnasStudentRouter = require('./Routes/qna_student');
 const statRouters = require('./Routes/stats');
+const mailRouters = require('./Routes/mail');
+const evaluteRoutes = require('./Routes/evalute')
 
 // Routes
 app.use('/', baseRoutes);
-app.use('/users', userRoutes);
-app.use('/questionpaper', questionPaperRoutes);
-app.use('/questions', questionRoutes);
-app.use('/answers', answerRoutes);
+app.use('/users', usersRouter);
+app.use('/assignment', assignmentsRouter);
+app.use('/submission', submissionsRouter);
+app.use('/faculty/qna', qnasFacultyRouter);
+app.use('/qna', qnasStudentRouter);
 app.use('/stats', statRouters);
+app.use('/emails', mailRouters);
+app.use('/evalute', evaluteRoutes)
 
 app.use((req, res, next) => {
   const error = new Error('Not Found');
