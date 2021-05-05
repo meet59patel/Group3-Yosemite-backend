@@ -58,6 +58,17 @@
         "code",
         "maintenance"
       ]
+    },
+    {
+      "login": "Archit20000",
+      "name": "Archit20000",
+      "avatar_url": "https://avatars.githubusercontent.com/u/62255087?v=4",
+      "profile": "https://github.com/Archit20000",
+      "contributions": [
+        "test",
+        "code",
+        "tool"
+      ]
     }
   ],
   "contributorsPerLine": 7,
