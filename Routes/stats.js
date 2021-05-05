@@ -65,7 +65,7 @@ router.get('/assignmentsOfLastWeek', async(req,res,next) => {
     try{
         let assignments = []
         for(let i=0;i<7;i++) {
-            const assignmentsOnIthDay = await Models.QuestionPaper.find({ createdAt: { $gte: new Date(new Date() - i * 60 * 60 * 24 * 1000) } })
+            const assignmentsOnIthDay = await Models.QnAs_Faculty.find({ createdAt: { $gte: new Date(new Date() - i * 60 * 60 * 24 * 1000) } })
             assignments.push(assignmentsOnIthDay)
         }
         res.status(200).json({

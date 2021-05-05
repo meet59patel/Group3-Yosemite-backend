@@ -48,6 +48,16 @@
         "data",
         "example"
       ]
+    },
+    {
+      "login": "Ridham2001",
+      "name": "Ridham2001",
+      "avatar_url": "https://avatars.githubusercontent.com/u/70639096?v=4",
+      "profile": "https://github.com/Ridham2001",
+      "contributions": [
+        "code",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
