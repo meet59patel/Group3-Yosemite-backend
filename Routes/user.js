@@ -5,7 +5,7 @@ const { Users } = require('../Models');
 // getting all users
 router.get('/', async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await Users.find();
     res.status(201).json({
       message: 'All Users fetched successfully',
       users: users,
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 // getting role wise user
 router.get('/role/:role', async (req, res) => {
   try {
-    const users = await User.find({ role: req.params.role });
+    const users = await Users.find({ role: req.params.role });
     users.filter((user) => user.role === req.params.role);
     res.status(201).json({
       message: `All ${req.params.role}s fetched successfully`,
@@ -37,7 +37,7 @@ router.get('/:id', getUser, (req, res) => {
 // getting one user with email
 // TODO: Secure this route
 router.get('/email/:email', (req, res) => {
-  User.findOne({ email: req.params.email })
+  Users.findOne({ email: req.params.email })
     .then((result) => {
       if (result) {
         res.status(200).json(result);
@@ -55,7 +55,7 @@ router.get('/email/:email', (req, res) => {
 
 // creating one user
 router.post('/', async (req, res) => {
-  const new_user = new User({
+  const new_user = new Users({
     user_name: req.body.user_name,
     email: req.body.email,
     role: req.body.role,
@@ -135,7 +135,7 @@ router.delete('/:id', getUser, async (req, res) => {
 async function getUser(req, res, next) {
   let user;
   try {
-    user = await User.findById(req.params.id);
+    user = await Users.findById(req.params.id);
     if (user == null) {
       return res.status(404).json({ message: 'cannot find user' });
     }
