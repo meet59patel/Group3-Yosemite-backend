@@ -27,6 +27,7 @@ router.post('/', async (req, res) => {
     evaluated_no_qna: 0,
     marks: 0,
     qna_list_ids: [],
+    assignment_id: req.body.assignment_id,
   });
 
   try {
@@ -45,13 +46,13 @@ router.post('/', async (req, res) => {
 
 // TODO: updating one with id
 router.patch('/:id', getSubmission, async (req, res) => {
-  req.body.user_id && (res.submission.user_id = req.body.user_id);
-  req.body.assignment_id &&
+  req.body.user_id != null && (res.submission.user_id = req.body.user_id);
+  req.body.assignment_id != null &&
     (res.submission.assignment_id = req.body.assignment_id);
-  req.body.evaluated_no_qna &&
+  req.body.evaluated_no_qna != null &&
     (res.submission.evaluated_no_qna = req.body.evaluated_no_qna);
-  req.body.marks && (res.submission.marks = req.body.marks);
-  req.body.qna_list_ids &&
+  req.body.marks != null && (res.submission.marks = req.body.marks);
+  req.body.qna_list_ids != null &&
     (res.submission.qna_list_ids = req.body.qna_list_ids);
 
   // TODO: write to add list of ids
