@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
   const new_qna = new QnAs_Student({
     qna_faculty_id: req.body.qna_faculty_id,
     answer: req.body.answer ? req.body.answer : '',
-    is_evaluated: false,
+    evaluation_status: 'pending',
     model_marks: 0,
     query_flag: false,
     query_description: '',
@@ -52,8 +52,8 @@ router.patch('/:id', getQnA_student, async (req, res) => {
   req.body.qna_faculty_id != null &&
     (res.qna.qna_faculty_id = req.body.qna_faculty_id);
   req.body.answer != null && (res.qna.answer = req.body.answer);
-  req.body.is_evaluated != null &&
-    (res.qna.is_evaluated = req.body.is_evaluated);
+  req.body.evaluation_status != null &&
+    (res.qna.evaluation_status = req.body.evaluation_status);
   req.body.model_marks != null && (res.qna.model_marks = req.body.model_marks);
   req.body.query_flag != null && (res.qna.query_flag = req.body.query_flag);
   req.body.query_description != null &&
