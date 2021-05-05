@@ -115,19 +115,20 @@ const qnaStudentSchema = new mongoose.Schema(
     model_marks: { type: Number, default: 0 },
     query_flag: { type: Boolean, default: false },
     query_description: { type: String },
+    query_solved: { type: Boolean, default: false },
     final_marks: { type: Number, default: 0 },
   },
   { timestamps: true }
 );
 
-const User = new mongoose.model('User', userSchema);
+const Users = new mongoose.model('Users', userSchema);
 const Assignments = new mongoose.model('Assignments', assignmentSchema);
 const Submissions = new mongoose.model('Submissions', submissionSchema);
 const QnAs_Faculty = new mongoose.model('QnAs_Faculty', qnaFacultySchema);
 const QnAs_Student = new mongoose.model('QnAs_Student', qnaStudentSchema);
 
 module.exports = {
-  User,
+  Users,
   Assignments,
   Submissions,
   QnAs_Faculty,
