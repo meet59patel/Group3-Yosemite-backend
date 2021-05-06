@@ -7,7 +7,7 @@ router.get('/countOfNewUserDuringLastWeek', async(req,res,next) => {
     try{
         const results = []
         for(let i=0; i<7; i++) {
-            const users = await Models.User.find({ createdAt: { $gte: new Date(new Date() - i * 60 * 60 * 24 * 1000) } })
+            const users = await Models.Users.find({ createdAt: { $gte: new Date(new Date() - i * 60 * 60 * 24 * 1000) } })
             const students = users.filter(user => user.role === "student")
             const admins = users.filter(user => user.role === "admin")
             const faculties = users.filter(user => user.role === "faculty")
@@ -39,7 +39,7 @@ router.get('/countOfUserDuringLastWeek', async(req,res,next) => {
     try{
         const results = []
         for (let i = 0; i < 7; i++) {
-            const users = await Models.User.find({ createdAt: { $gte: new Date(new Date() - i * 60 * 60 * 24 * 1000) } })
+            const users = await Models.Users.find({ createdAt: { $gte: new Date(new Date() - i * 60 * 60 * 24 * 1000) } })
             const students = users.filter(user => user.role === "student")
             const admins = users.filter(user => user.role === "admin")
             const faculties = users.filter(user => user.role === "faculty")
