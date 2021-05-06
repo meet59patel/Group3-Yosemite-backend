@@ -111,7 +111,7 @@ router.get('/assignmentInfo', async(req,res,next) => {
 // This route expecting to pass the questionPaperId
 router.get('/facultyAnswerInfo/:assignmentId', async(req,res,next) => {
     try{
-        const assignment = await Models.Assignments.findById(assignmentId)
+        const assignment = await Models.Assignments.findById(req.params.assignmentId)
         if(!assignment) {
             throw new Error("Assignment does not exist")
         }
