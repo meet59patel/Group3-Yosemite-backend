@@ -109,7 +109,7 @@ const qnaStudentSchema = new mongoose.Schema(
     answer: { type: String },
     evaluation_status: {
       type: String,
-      enum: ['pending', 'processing', 'done'],
+      // enum: ['pending', 'processing', 'done'],
       default: 'pending',
     },
     model_marks: { type: Number, default: 0 },
