@@ -31,9 +31,9 @@ const qnasFacultyRouter = require('./Routes/qna_faculty');
 const qnasStudentRouter = require('./Routes/qna_student');
 const statRouters = require('./Routes/stats');
 const mailRouters = require('./Routes/mail');
-// const evaluteRoutes = require('./Routes/evalute')
+const evaluteRoutes = require('./Routes/evalute');
 
-// Routes  
+// Routes
 app.use('/', baseRoutes);
 app.use('/users', usersRouter);
 app.use('/assignment', assignmentsRouter);
@@ -42,7 +42,7 @@ app.use('/faculty/qna', qnasFacultyRouter);
 app.use('/qna', qnasStudentRouter);
 app.use('/stats', statRouters);
 app.use('/emails', mailRouters);
-// app.use('/evalute', evaluteRoutes)
+app.use('/evaluate', evaluteRoutes);
 
 app.use((req, res, next) => {
   const error = new Error('Not Found');

@@ -6,6 +6,8 @@ const axios = require("axios");
 
 const queue = new Queue({ concurrency: 1 });
 
+const NLP_URL = process.env.NLP_URL || '';
+
 router.get("/:assignmentId", async (req, res) => {
         // get assi with id
         const assignment = await Models.Assignments.findById(
@@ -50,7 +52,6 @@ router.get("/:assignmentId", async (req, res) => {
                 // queue_qna["max_marks"] = faculty_QnA[qna._id]?.marks;
                 // queue_qna["student_ans"] = qna?.answer;
                 // student_qna.push(queue_qna);
-
                 const qna = await Models.QnAs_Student.findById(qna_id);
                 // change status to in_queue
                 if (faculty_QnA[qna._id]) {
@@ -77,7 +78,7 @@ router.get("/:assignmentId", async (req, res) => {
             // send request to NLP model
             queue.push(async () => {
                 const resFromNLP = await axios.post(
-                    "http://1dbfae5e514a.ngrok.io/predict",
+                    `${NLP_URL}/predict`,
                     {
                         model_ans: NLPqna.model_ans,
                         student_ans: NLPqna.student_ans,
