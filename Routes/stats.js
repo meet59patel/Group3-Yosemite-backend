@@ -109,20 +109,42 @@ router.get('/assignmentInfo', async(req,res,next) => {
 
 // Number of answers faculty has evaluted and is yet to evalute
 // This route expecting to pass the questionPaperId
-router.get('/facultyAnswerInfo/:questionPaperId', async(req,res,next) => {
+router.get('/facultyAnswerInfo/:assignmentId', async(req,res,next) => {
     try{
-        const answers = await Models.Answer.find({ questionPaperID: req.params.questionPaperId})
+        const assignment = await Models.Assignments.findById(req.params.assignmentId)
+        if(!assignment) {
+            throw new Error("Assignment does not exist")
+        }
+        const submissions = await Models.Submissions.find({ assignment_id: assignment._id})
         let evaluted = 0, notEvaluted = 0;
-        answers.forEach((answer) => {
-            if (answer.is_evaluted) evaluted += 1
-            else notEvaluted += 1
-        })
-        const students = await Models.StudentQuestionRelation.find({ questionPaperID: req.params.questionPaperId })
+        for(let i=0; i < submissions.length; i++) {
+            const qna_list_ids = submissions[i].qna_list_ids
+            for(let j=0; j < qna_list_ids.length; j++) {
+                const qna_student = await Models.QnAs_Student.findById(qna_list_ids[j])
+                if(qna_student) {
+                    if(qna_student.is_evaluted === 'done') evaluted += 1
+                    else notEvaluted += 1
+                }
+            }
+        }
         res.status(200).json({
-            assigned: students.length,
+            assigned: assignment.submission_list_ids.length,
             evaluted,
             notEvaluted
         })
+
+        // const answers = await Models.Answer.find({ questionPaperID: req.params.questionPaperId})
+        // let evaluted = 0, notEvaluted = 0;
+        // answers.forEach((answer) => {
+        //     if (answer.is_evaluted) evaluted += 1
+        //     else notEvaluted += 1
+        // })
+        // const students = await Models.StudentQuestionRelation.find({ questionPaperID: req.params.questionPaperId })
+        // res.status(200).json({
+        //     assigned: students.length,
+        //     evaluted,
+        //     notEvaluted
+        // })
     } catch(err) {
         res.status(500).json({ error: err })
     }
